@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "Izy AI Kimi",
+  "version": "1.0.0",
+  "description": "Assistente de IA com OpenRouter integrado",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting",
+    "tabs",
+    "downloads"
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"]
+  }],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Izy AI Kimi ~ AI Assistant"
+  },
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "web_accessible_resources": [{
+    "resources": ["*.js", "*.css"],
+    "matches": ["<all_urls>"]
+  }]
+}
